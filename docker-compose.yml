@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  redis:
+    image: redis:5.0.7
+    volumes:
+      - type: bind
+        source: ./kn/
+        target: /kn
+      - type: bind
+        source: ./data/
+        target: /data
+      - type: bind
+        source: ./conf/redis.conf
+        target: /usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+  redis-cli:
+    image: redis:5.0.7
+    links:
+      - redis
+    command: redis-cli -h redis

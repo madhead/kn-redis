@@ -1,0 +1,15 @@
+headers = redismodule.h
+
+---
+
+static inline int RedisModuleWrapper_CreateCommand(RedisModuleCtx *ctx, const char *name, RedisModuleCmdFunc cmdfunc, const char *strflags, int firstkey, int lastkey, int keystep) {
+    return RedisModule_CreateCommand(ctx, name, cmdfunc, strflags, firstkey, lastkey, keystep);
+}
+
+static inline RedisModuleType * RedisModuleWrapper_CreateDataType(RedisModuleCtx *ctx, const char *name, int encver, RedisModuleTypeMethods *typemethods) {
+    return RedisModule_CreateDataType(ctx, name, encver, typemethods);
+}
+
+static inline void Brackets_EmitAOF(RedisModuleIO *io, const RedisModuleString *key, char *bracket) {
+    return RedisModule_EmitAOF(io, "BRACKETS.KN.PUSH", "sc", key, bracket);
+}

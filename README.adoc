@@ -1,0 +1,5 @@
+# redis
+
+ . Build the code: `./gradlew clean assemble`
+ . Start the CLI session: `docker-compose run redis-cli`
+ . Explore the commands: `BRACKETS.KN.VERSION`, `BRACKETS.KN.PUSH`, `BRACKETS.KN.PRINT` and `BRACKETS.KN.VALID`
